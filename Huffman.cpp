@@ -52,6 +52,7 @@ Node *decodeTree(string, int &);
 string createDecoding(Node *, string);
 void createDecompressedFile(string, string);
 
+//Helper Function
 string convertToBinary(int a);
 
 int main(int argc, char *argv[])
