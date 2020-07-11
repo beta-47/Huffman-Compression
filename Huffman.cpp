@@ -112,17 +112,10 @@ void compress(string fileName)
 
 string extractInformation(string fileName)
 {
-    string information = "";
-    unsigned char ch;
-    ifstream file(fileName);
-
-    file >> noskipws;
-    while(file >> ch)    
-    {
-        information += ch;
-    }
-    
-    return information;
+    ifstream t(fileName);
+    stringstream buffer;
+    buffer << t.rdbuf();
+    return buffer.str();
 }
 
 unordered_map<char, int> getFrequencies(string information)
