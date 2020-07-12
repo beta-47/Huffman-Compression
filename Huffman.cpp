@@ -331,18 +331,16 @@ void createDecompressedFile(string fileName, string encoding)
 string convertToBinary(int a)
 {
     string res = "";
-    stack<int> s;
-    while(a != 0)
+    while(a)
     {
-        s.push(a % 2);
-        a = a / 2;
+    	if(a & 1) 
+    		res.push_back('1');
+    	else
+    		res.push_back('0');
+    	a >>= 1;
     }
-    int count = s.size();
-    while(count < 8) {count++; res += '0';}
-    while(!s.empty())
-    {
-        res += to_string(s.top());
-        s.pop();
-    }
+    while(res.length() < 8)
+    	res.push_back('0');
+    reverse(res.begin(), res.end());
     return res;
 }
